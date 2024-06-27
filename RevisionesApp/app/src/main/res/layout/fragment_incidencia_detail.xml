@@ -1,0 +1,174 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    tools:context=".fragments.IncidenciaDetailFragment"
+    android:id="@+id/incidenciaDetailFragment">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/idLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/idIncidenciaEditText"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/descripcionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/descripcionEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/estadoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/estadoEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/prioridadLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prioridad:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/prioridadEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/albaranLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Albarán:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/albaranEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/usuarioLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/usuarioEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/fcreacionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Creado en:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/fcreacionEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:enabled="false"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/factualizacionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Actualizado en:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/factualizacionEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:enabled="false"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/equipoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Equipo:"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/equipoEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:imeOptions="actionNext"
+            android:inputType="text"/>
+    </TableRow>
+
+</TableLayout>
