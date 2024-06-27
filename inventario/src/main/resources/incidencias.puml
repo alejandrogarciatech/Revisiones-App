@@ -1,0 +1,83 @@
+@startuml INCIDENCIAS
+!define RECTANGLE entity
+
+entity Incidencia {
+    + Long id
+    + String descripcion
+    + String estado
+    + String prioridad
+    + Long idUsuario
+    + String idAlbaran
+    + Equipo equipo
+    + Audit audit
+    + Incidencia()
+    + Incidencia(Long id, String descripcion, String estado, String prioridad, Long idUsuario, String idAlbaran)
+    + Long getId()
+    + void setId(Long id)
+    + String getDescripcion()
+    + void setDescripcion(String descripcion)
+    + String getEstado()
+    + void setEstado(String estado)
+    + String getPrioridad()
+    + void setPrioridad(String prioridad)
+    + Long getIdUsuario()
+    + void setIdUsuario(Long idUsuario)
+    + String getIdAlbaran()
+    + void setIdAlbaran(String idAlbaran)
+    + Equipo getEquipo()
+    + void setEquipo(Equipo equipo)
+    + LocalDateTime getCreateAt()
+    + LocalDateTime getUpdateAt()
+    + void setCreateAt()
+    + void setUpdateAt()
+    + String toString()
+}
+
+class Audit {
+    + LocalDateTime createAt
+    + LocalDateTime updateAt
+    + LocalDateTime getCreateAt()
+    + void setCreateAt(LocalDateTime createAt)
+    + LocalDateTime getUpdateAt()
+    + void setUpdateAt(LocalDateTime updateAt)
+}
+
+interface IncidenciaRepositorio {
+    + Optional<Incidencia> findByEquipoId(String equipo)
+}
+
+class IncidenciasController {
+    + List<Incidencia> list()
+    + ResponseEntity<?> viewById(Long id)
+    + ResponseEntity<?> viewByEquipoId(String equipoId)
+    + ResponseEntity<?> create(Incidencia incidencia, BindingResult result)
+    + ResponseEntity<?> update(Long id, Incidencia incidencia, BindingResult result)
+    + ResponseEntity<?> delete(Long id)
+}
+
+interface IncidenciaServicio {
+    + List<Incidencia> findAll()
+    + Optional<Incidencia> findById(Long id)
+    + Optional<Incidencia> findByEquipoId(String equipo)
+    + Incidencia save(Incidencia incidencia)
+    + Optional<Incidencia> update(Long id, Incidencia incidencia)
+    + Optional<Incidencia> delete(Long id)
+}
+
+class IncidenciaServicioJPA {
+    + List<Incidencia> findAll()
+    + Optional<Incidencia> findById(Long id)
+    + Optional<Incidencia> findByEquipoId(String equipo)
+    + Incidencia save(Incidencia incidencia)
+    + Optional<Incidencia> update(Long id, Incidencia incidencia)
+    + Optional<Incidencia> delete(Long id)
+}
+
+Incidencia --> Equipo : Many-to-One
+Incidencia *-- Audit : Embedded
+
+IncidenciasController --> IncidenciaServicio : servicio
+IncidenciaServicioJPA --> IncidenciaRepositorio : repositorio
+
+IncidenciaServicio <|.. IncidenciaServicioJPA : implements
+@enduml

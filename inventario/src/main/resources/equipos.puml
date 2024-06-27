@@ -1,0 +1,88 @@
+@startuml nombre
+entity Equipo{
+  -String id
+  -String nombre
+  -String tipoProducto
+  -String marca
+  -String modelo
+  -String nSerie
+  -double peso
+  -double dimensiones
+  -String ubicacion
+  -String qrcode
+  +String getId()
+  +void setId(String id)
+  +String getNombre()
+  +void setNombre(String nombre)
+  +String getTipoProducto()
+  +void setTipoProducto(String tipoProducto)
+  +String getMarca()
+  +void setMarca(String marca)
+  +String getModelo()
+  +void setModelo(String modelo)
+  +String getnSerie()
+  +void setnSerie(String nSerie)
+  +double getPeso()
+  +void setPeso(double peso)
+  +double getDimensiones()
+  +void setDimensiones(double dimensiones)
+  +String getUbicacion()
+  +void setUbicacion(String ubicacion)
+  +String getQrcode()
+  +void setQrcode(String codigoBarras)
+}
+interface EquipoRepositorio {
+  +Optional<Equipo> findByNombre(String nombre)
+  +Optional<Equipo> findByTipoProducto(String tipoProducto)
+}
+class EquipoController {
+  -EquipoServicio servicio
+  -EquipoValidation validation
+  -QrCodeService barCodeService
+  +List<Equipo> list()
+  +ResponseEntity<?> viewById(String id)
+  +ResponseEntity<?> viewByNombre(String nombre)
+  +ResponseEntity<?> viewByTipoProducto(String tipoProducto)
+  +ResponseEntity<?> create(Equipo equipo, BindingResult result)
+  +ResponseEntity<?> update(Equipo equipo, BindingResult result, String id)
+  +ResponseEntity<?> delete(String id)
+  -ResponseEntity<?> validation(BindingResult result)
+}
+interface EquipoServicio {
+  +List<Equipo> findAll()
+  +Optional<Equipo> findById(String id)
+  +Optional<Equipo> findByNombre(String nombre)
+  +Optional<Equipo> findByTipoProducto(String tipoProducto)
+  +Equipo save(Equipo equipo)
+  +Optional<Equipo> update(String id, Equipo equipo)
+  +Optional<Equipo> delete(String id)
+}
+class EquipoServicioJPA {
+  -EquipoRepositorio repositorio
+  +List<Equipo> findAll()
+  +Optional<Equipo> findById(String id)
+  +Optional<Equipo> findByNombre(String nombre)
+  +Optional<Equipo> findByTipoProducto(String tipoProducto)
+  +Equipo save(Equipo equipo)
+  +Optional<Equipo> update(String id, Equipo equipo)
+  +Optional<Equipo> delete(String id)
+}
+
+class QrCodeService {
+  -static int BARCODE_WIDTH
+  -static int BARCODE_HEIGHT
+  -static String IMAGE_FORMAT
+  +String generateBarCode(String id)
+  +BufferedImage generateBarCodeImage(String barCodeText)
+}
+class EquipoValidation implements Validator {
+  +boolean supports(Class<?> clazz)
+  +void validate(Object target, Errors errors)
+}
+EquipoController "1" *-- "1" EquipoServicio : uses
+EquipoController "1" *-- "1" EquipoValidation : uses
+EquipoController "1" *-- "1" QrCodeService : uses
+EquipoServicioJPA --> EquipoRepositorio: uses
+EquipoServicioJPA ..|> EquipoServicio: implements
+
+@enduml@@
